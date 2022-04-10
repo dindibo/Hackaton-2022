@@ -48,5 +48,7 @@ export class MapComponent implements OnInit {
 
     //store the marker object drawn on map in global array
     this.markersArray.push(marker);
+    var that = this;
+    marker.addListener("click", (e) => {marker.setMap(null);});
   }
 }
