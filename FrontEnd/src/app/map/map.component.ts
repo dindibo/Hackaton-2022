@@ -19,11 +19,16 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     var sanFrancisco = new google.maps.LatLng(37.774546, -122.433523);
-
-   const mapProperties = {
+  
+   const mapProperties: google.maps.MapOptions = {
         center: sanFrancisco,
         zoom: 13,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        styles:[{
+          featureType: "poi",
+          elementType: "labels",
+          stylers: [{visibility:"off"}]
+        }]
    };
    this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
    this.heatmap = new google.maps.visualization.HeatmapLayer({
@@ -44,7 +49,7 @@ export class MapComponent implements OnInit {
     var icon = {
       url: "../assets/police icon.png", // url
       scaledSize: new google.maps.Size(50, 50), // scaled size
-  };
+    };
 
     let marker = new google.maps.Marker({
         map: this.map as google.maps.Map,
