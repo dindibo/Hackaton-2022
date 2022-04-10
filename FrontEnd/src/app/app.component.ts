@@ -11,22 +11,24 @@ import { HttpService } from './http.service';
 export class AppComponent {
   title = 'FrontEnd';
   heatMapData: Array<google.maps.LatLng|google.maps.visualization.WeightedLocation> = [];
+  dateInput: string = "";
 
   constructor(private http: HttpService) {}
 
   ngOnInit(): void {
 
     
-   this.http.getPositions(new Date()).subscribe(arr => {
+   this.http.getPositions(this.dateInput).subscribe(arr => {
     this.heatMapData = arr;
    })
    
   }
 
-  onDateChange() {
-    this.http.getPositions(new Date()).subscribe(arr => {
+  onDateChange(date: string) {
+    this.http.getPositions(date).subscribe(arr => {
       this.heatMapData = arr;
      })
+     this.dateInput = date;
   }
 }
 

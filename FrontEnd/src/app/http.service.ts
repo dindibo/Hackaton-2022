@@ -10,7 +10,7 @@ export class HttpService {
 
   constructor(private http: HttpClient) {}
 
-  getPositions(date : Date):Observable<Array<google.maps.LatLng|google.maps.visualization.WeightedLocation>>{
+  getPositions(date : string):Observable<Array<google.maps.LatLng|google.maps.visualization.WeightedLocation>>{
     return of([
       {location: new google.maps.LatLng(37.782, -122.447), weight: 0.5},
       new google.maps.LatLng(37.782, -122.445),

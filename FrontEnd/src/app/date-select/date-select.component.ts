@@ -6,15 +6,10 @@ import { Component, OnInit, OnChanges, SimpleChanges, Output, EventEmitter } fro
   styleUrls: ['./date-select.component.scss']
 })
 export class DateSelectComponent implements OnInit, OnChanges {
-
-  inputDate: string = "yuvyguvgu";
+  @Output('change') dateChangeEvent = new EventEmitter<string>();
 
   constructor() { }
 
-  @Output("change")
-  onDateChange(): string{
-    return this.inputDate;
-  }
 
   ngOnChanges(changes: SimpleChanges): void {
     alert(1)
