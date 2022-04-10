@@ -12,6 +12,8 @@ export class MapComponent implements OnInit {
   @Input("data")public data: Array<google.maps.LatLng|google.maps.visualization.WeightedLocation> = [];
   map: google.maps.Map | null = null;
   heatmap: google.maps.visualization.HeatmapLayer | null = null;
+  markersArray: google.maps.Marker[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -27,9 +29,24 @@ export class MapComponent implements OnInit {
       data: this.data
     });
    this.heatmap.setMap(this.map);
+    var that = this;
+   this.map.addListener('click', function(e) {
+    that.addMarker(e.latLng);
+  });
   }
 
   ngOnChanges(changes: SimpleChanges) {
     this.heatmap?.setData(changes['data'].currentValue);
+  }
+
+  addMarker(latLng: google.maps.LatLng) {
+    let marker = new google.maps.Marker({
+        map: this.map as google.maps.Map,
+        position: latLng,
+        draggable: true
+    });
+
+    //store the marker object drawn on map in global array
+    this.markersArray.push(marker);
   }
 }

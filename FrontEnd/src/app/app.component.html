@@ -18,7 +18,9 @@
     <div fxFlex class="three"></div>
   
   </div> -->
-  <app-date-select (change)="onDateChange($event)"></app-date-select>
+<div style="margin: 20px;">
+    <app-date-select (change)="onDateChange($event)"></app-date-select>
+    <app-map [data]="heatMapData" style="height:900px;"></app-map>
+</div>
 
-        <app-map [data]="heatMapData" style="height:900px;"></app-map>
    
