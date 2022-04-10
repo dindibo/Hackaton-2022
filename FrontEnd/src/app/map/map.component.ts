@@ -32,7 +32,7 @@ export class MapComponent implements OnInit {
    };
    this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
    this.heatmap = new google.maps.visualization.HeatmapLayer({
-      data: this.data
+      data: []
     });
    this.heatmap.setMap(this.map);
     var that = this;
