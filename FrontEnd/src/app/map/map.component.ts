@@ -41,10 +41,16 @@ export class MapComponent implements OnInit {
   }
 
   addMarker(latLng: google.maps.LatLng) {
+    var icon = {
+      url: "../assets/police icon.png", // url
+      scaledSize: new google.maps.Size(50, 50), // scaled size
+  };
+
     let marker = new google.maps.Marker({
         map: this.map as google.maps.Map,
         position: latLng,
-        draggable: true
+        draggable: true,
+        icon: icon,
     });
 
     //store the marker object drawn on map in global array
