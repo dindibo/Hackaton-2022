@@ -56,9 +56,9 @@ class average_normalizer:
         return points
 
     def generate(self):
-        self.truncate_data(self.threshold)
+        self.points = self.truncate_data(self.threshold)
         
         # TODO: Assert sorted
-        self.scale(self.points, skip_sort=True)
+        self.points = self.scale(self.points, skip_sort=True)
 
         return self.points
