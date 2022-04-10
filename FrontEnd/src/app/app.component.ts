@@ -10,7 +10,7 @@ import { HttpService } from './http.service';
 })
 export class AppComponent {
   title = 'FrontEnd';
-  heatMapData: Array<google.maps.LatLng|google.maps.visualization.WeightedLocation> = [];
+  heatMapData: Array<google.maps.visualization.WeightedLocation> = [];
   dateInput: string = "";
 
   constructor(private http: HttpService) {}
