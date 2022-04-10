@@ -1,1 +1,7 @@
-<p>date-select works!</p>
+<mat-form-field>
+    <input matInput [ngxMatDatetimePicker]="picker" [(ngModel)]="inputDate" (change)="inputDate" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+ </mat-form-field>
+
+ {{inputDate}}

@@ -21,6 +21,13 @@ export class AppComponent {
     this.heatMapData = arr;
    })
    
+  }
+
+  onDateChange() {
+    this.http.getPositions(new Date()).subscribe(arr => {
+      this.heatMapData = arr;
+     })
+  }
 }
-}
+
 
